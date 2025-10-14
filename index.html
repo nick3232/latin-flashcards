@@ -1,0 +1,82 @@
+<!-- index.html — Latin Flashcards App (Category Selection Simplified) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latin Flashcards</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ========================= -->
+    <!-- Home View: Category Selector -->
+    <!-- ========================= -->
+    <section id="homeView">
+      <h1>Latin Flashcards</h1>
+      <p>Select a category to begin:</p>
+      <div class="button-column">
+        <button class="btn" data-level="level1">Core Words</button>
+        <button class="btn" data-level="level2">Everyday Life</button>
+        <button class="btn" data-level="level3">Nature & World</button>
+        <button class="btn" data-level="level4">Abstract Ideas</button>
+      </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Flashcard View            -->
+    <!-- ========================= -->
+    <section id="flashcardView" class="hidden">
+      <div class="controls">
+        <button id="prevBtn" class="btn secondary">◀ Back</button>
+        <span id="progress" class="progress"></span>
+        <button id="nextBtn" class="btn secondary">Next ▶</button>
+      </div>
+
+      <div class="card-wrapper">
+        <div id="card" class="card">
+          <div class="card-face front">
+            <div class="latin" id="latin-word">Latin Word</div>
+            <div class="pron" id="latin-pron">Pronunciation</div>
+          </div>
+          <div class="card-face back">
+            <div class="latin" id="latin-word-back">Latin Word</div>
+            <div class="pron" id="latin-pron-back">Pronunciation</div>
+            <div class="english" id="english-word">English Translation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="second-controls">
+        <button id="shuffleBtn" class="btn">Shuffle 🔀</button>
+        <button id="wordListBtn" class="btn">Word List 📖</button>
+        <button id="backToHome" class="btn secondary">🏠 Home</button>
+      </div>
+
+      <div id="toast" class="toast">Deck shuffled!</div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- Word List View            -->
+    <!-- ========================= -->
+    <section id="allWordsView" class="hidden">
+      <h2>Word List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Latin</th>
+            <th>Pronunciation</th>
+            <th>English</th>
+          </tr>
+        </thead>
+        <tbody id="wordsTableBody"></tbody>
+      </table>
+      <button id="backToFlashcards" class="btn secondary">Back to Flashcards</button>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
