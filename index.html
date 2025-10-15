@@ -1,4 +1,3 @@
-<!-- index.html — Latin Flashcards App (Category Selection Simplified) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +8,12 @@
 </head>
 <body>
   <div class="app">
+    <h1>Latin Flashcards</h1>
 
-    <!-- ========================= -->
-    <!-- Home View: Category Selector -->
-    <!-- ========================= -->
+    <!-- Home View -->
     <section id="homeView">
-      <h1>Latin Flashcards</h1>
-      <p>Select a category to begin:</p>
-      <div class="button-column">
+      <h2>Select a category to begin:</h2>
+      <div class="category-buttons">
         <button class="btn" data-level="level1">Core Words</button>
         <button class="btn" data-level="level2">Everyday Life</button>
         <button class="btn" data-level="level3">Nature & World</button>
@@ -24,42 +21,39 @@
       </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- Flashcard View            -->
-    <!-- ========================= -->
+    <!-- Flashcard View -->
     <section id="flashcardView" class="hidden">
+      <div class="card-wrapper">
+        <div class="card" id="card">
+          <div class="card-face front">
+            <div class="latin" id="latin-word"></div>
+            <div class="pron" id="latin-pron"></div>
+          </div>
+          <div class="card-face back">
+            <div class="latin" id="latin-word-back"></div>
+            <div class="pron" id="latin-pron-back"></div>
+            <div class="english" id="english-word"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="controls">
         <button id="prevBtn" class="btn secondary">◀ Back</button>
         <span id="progress" class="progress"></span>
         <button id="nextBtn" class="btn secondary">Next ▶</button>
       </div>
 
-      <div class="card-wrapper">
-        <div id="card" class="card">
-          <div class="card-face front">
-            <div class="latin" id="latin-word">Latin Word</div>
-            <div class="pron" id="latin-pron">Pronunciation</div>
-          </div>
-          <div class="card-face back">
-            <div class="latin" id="latin-word-back">Latin Word</div>
-            <div class="pron" id="latin-pron-back">Pronunciation</div>
-            <div class="english" id="english-word">English Translation</div>
-          </div>
-        </div>
-      </div>
-
       <div class="second-controls">
-        <button id="shuffleBtn" class="btn">Shuffle 🔀</button>
-        <button id="wordListBtn" class="btn">Word List 📖</button>
-        <button id="backToHome" class="btn secondary">🏠 Home</button>
+        <button id="revealBtn" class="btn">Reveal</button>
+        <button id="shuffleBtn" class="btn secondary">Shuffle</button>
+        <button id="showListBtn" class="btn secondary">Word List</button>
+        <button id="homeBtn" class="btn secondary">Home</button>
       </div>
 
-      <div id="toast" class="toast">Deck shuffled!</div>
+      <div id="toast" class="toast">Shuffled successfully!</div>
     </section>
 
-    <!-- ========================= -->
-    <!-- Word List View            -->
-    <!-- ========================= -->
+    <!-- Word List View -->
     <section id="allWordsView" class="hidden">
       <h2>Word List</h2>
       <table>
@@ -75,8 +69,8 @@
       </table>
       <button id="backToFlashcards" class="btn secondary">Back to Flashcards</button>
     </section>
-
   </div>
-  <script src="script.js"></script>
+
+  <script src="script.js" defer></script>
 </body>
 </html>

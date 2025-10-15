@@ -1,4 +1,6 @@
-/* styles.css */
+/* ============================= */
+/* Root Variables and Base Styles */
+/* ============================= */
 :root {
   --bg: #f4f6f8;
   --card-bg: #ffffff;
@@ -6,7 +8,7 @@
   --text: #1b2430;
   --muted: #667085;
   --radius: 12px;
-  --shadow: 0 10px 30px rgba(18, 30, 55, 0.08);
+  --shadow: 0 8px 25px rgba(18, 30, 55, 0.08);
 }
 
 body {
@@ -16,7 +18,7 @@ body {
   color: var(--text);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -27,23 +29,27 @@ body {
   text-align: center;
 }
 
-h1, h2 {
-  margin: 0.5rem 0;
+/* ============================= */
+/* Headings                      */
+/* ============================= */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
 }
 
-.hidden {
-  display: none;
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
 }
 
 /* ============================= */
-/* Home Screen: Category Buttons */
+/* View Layouts                  */
 /* ============================= */
-.button-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
+#homeView, #flashcardView, #allWordsView {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 #homeView {
@@ -51,44 +57,54 @@ h1, h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 70vh;
 }
 
-#homeView h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+/* Uniform category button layout */
+.category-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-#homeView p {
-  color: var(--muted);
-  font-size: 1.1rem;
+.category-buttons .btn {
+  width: 240px;
+  text-align: center;
 }
 
+
+/* ============================= */
+/* Buttons                       */
+/* ============================= */
 .btn {
   background: var(--accent);
   color: white;
   border: 0;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 999px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(43, 124, 255, 0.18);
-  transition: transform 0.15s ease;
-  width: 220px;
+  transition: transform 0.1s ease, background 0.3s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  background: #1f6ae0;
 }
 
 .btn.secondary {
   background: transparent;
   color: var(--text);
-  border: 1px solid rgba(20,30,60,0.06);
+  border: 1px solid rgba(20,30,60,0.08);
   box-shadow: none;
 }
 
+/* ============================= */
+/* Flashcard Layout              */
+/* ============================= */
 .card-wrapper {
   perspective: 1200px;
   margin: 1.25rem auto;
@@ -133,7 +149,7 @@ h1, h2 {
 }
 
 .latin {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -146,7 +162,7 @@ h1, h2 {
 .english {
   font-size: 1.4rem;
   font-weight: 600;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
 }
 
 .controls, .second-controls {
@@ -178,6 +194,9 @@ h1, h2 {
   opacity: 1;
 }
 
+/* ============================= */
+/* Word List Table               */
+/* ============================= */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -196,4 +215,17 @@ th {
 
 tbody tr:hover {
   background: rgba(43,124,255,0.04);
+}
+
+/* Make word list rows clickable */
+#wordsTableBody tr {
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* Utility                       */
+/* ============================= */
+.hidden {
+  display: none !important;
 }
