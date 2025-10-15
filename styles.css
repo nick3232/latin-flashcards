@@ -229,3 +229,18 @@ tbody tr:hover {
 .hidden {
   display: none !important;
 }
+
+/* Responsive layout for mobile: stack control buttons in 2x2 grid */
+@media (max-width: 600px) {
+  .second-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    justify-items: center;
+  }
+
+  .second-controls .btn {
+    width: 100%;
+    max-width: 160px;
+  }
+}
