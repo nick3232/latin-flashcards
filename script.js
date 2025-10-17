@@ -58,14 +58,33 @@ function renderCard() {
 }
 
 function nextCard() {
+  // If the card is revealed, reset it instantly (no flip animation)
+  if (card.classList.contains("revealed")) {
+    card.style.transition = "none"; // temporarily disable flip transition
+    card.classList.remove("revealed");
+    void card.offsetWidth; // force browser reflow to reset animation
+    card.style.transition = ""; // restore transition
+  }
+
+  // Move to the next card
   currentIndex = (currentIndex + 1) % currentDeck.length;
   renderCard();
 }
 
 function prevCard() {
+  // If the card is revealed, reset it instantly (no flip animation)
+  if (card.classList.contains("revealed")) {
+    card.style.transition = "none"; // temporarily disable flip transition
+    card.classList.remove("revealed");
+    void card.offsetWidth; // force browser reflow to reset animation
+    card.style.transition = ""; // restore transition
+  }
+
+  // Move to the previous card
   currentIndex = (currentIndex - 1 + currentDeck.length) % currentDeck.length;
   renderCard();
 }
+
 
 function revealCard() {
   card.classList.toggle("revealed");

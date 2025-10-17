@@ -60,6 +60,14 @@ h2 {
   min-height: 70vh;
 }
 
+/* Prevent flashcard overflow and center it on mobile */
+#flashcardView {
+  overflow-x: hidden; /* Hide any accidental horizontal overflow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Uniform category button layout */
 .category-buttons {
   display: flex;
@@ -108,9 +116,12 @@ h2 {
 .card-wrapper {
   perspective: 1200px;
   margin: 1.25rem auto;
-  width: min(520px, 90vw);
+  width: 100%;
+  max-width: 420px;
   height: min(320px, 55vh);
+  box-sizing: border-box;
 }
+
 
 .card {
   position: relative;
